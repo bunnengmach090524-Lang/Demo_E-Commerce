@@ -1,18 +1,22 @@
 <template>
-  <footer class="bg-[#f5f5f7] text-[#1d1d1f] border-t border-black/5">
+  <footer class="bg-[#dfe1e6] text-[#1d1d1f] border-t border-black/5">
 
     <!-- TOP FEATURES -->
     <div class="border-b border-black/5">
       <div class="max-w-7xl mx-auto px-6 lg:px-10 py-6">
         <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
 
-          <div
-            v-for="t in trustItems"
-            :key="t.label"
-            class="flex items-center gap-3"
-          >
-            <div class="w-10 h-10 rounded-full bg-black/[0.04] flex items-center justify-center">
-              <component :is="t.icon" class="w-5 h-5 text-black/70" />
+          <div v-for="t in trustItems" :key="t.label" class="flex items-center gap-3 p-3 rounded-2xl
+         bg-white/60
+         border border-black/5
+         hover:bg-white
+         hover:border-black/10
+         transition-all duration-300">
+            <div class="w-11 h-11 rounded-2xl
+           bg-gradient-to-b from-white to-black/[0.03]
+           border border-black/10
+           flex items-center justify-center">
+              <component :is="t.icon" :class="t.color" class="w-5 h-5" />
             </div>
 
             <div>
@@ -39,8 +43,7 @@
 
           <div class="flex items-center gap-3 mb-5">
             <div
-              class="w-11 h-11 rounded-2xl bg-[#1d1d1f] text-white flex items-center justify-center font-bold text-lg"
-            >
+              class="w-11 h-11 rounded-2xl bg-[#1d1d1f] text-white flex items-center justify-center font-bold text-lg">
               E
             </div>
 
@@ -67,17 +70,11 @@
             </h4>
 
             <div class="flex flex-col sm:flex-row gap-3">
-              <input
-                v-model="email"
-                type="email"
-                placeholder="Email address"
-                class="flex-1 h-12 px-4 rounded-full bg-white border border-black/10 outline-none focus:border-black/30 transition-all"
-              />
+              <input v-model="email" type="email" placeholder="Email address"
+                class="flex-1 h-12 px-4 rounded-full bg-white border border-black/10 outline-none focus:border-black/30 transition-all" />
 
-              <button
-                @click="subscribe"
-                class="h-12 px-6 rounded-full bg-[#1d1d1f] text-white text-sm font-medium hover:opacity-90 transition"
-              >
+              <button @click="subscribe"
+                class="h-12 px-6 rounded-full bg-[#1d1d1f] text-white text-sm font-medium hover:opacity-90 transition">
                 Subscribe
               </button>
             </div>
@@ -85,18 +82,9 @@
 
           <!-- SOCIAL -->
           <div class="flex items-center gap-3">
-            <a
-              v-for="s in socials"
-              :key="s.label"
-              :href="s.href"
-              :aria-label="s.label"
-              class="w-10 h-10 rounded-full border border-black/10 bg-white hover:bg-black hover:text-white transition-all duration-300 flex items-center justify-center"
-            >
-              <img
-                :src="s.icon"
-                :alt="s.label"
-                class="w-4 h-4 opacity-70"
-              />
+            <a v-for="s in socials" :key="s.label" :href="s.href" :aria-label="s.label"
+              class="w-10 h-10 rounded-full border border-black/10 bg-white hover:bg-black hover:text-white transition-all duration-300 flex items-center justify-center">
+              <img :src="s.icon" :alt="s.label" class="w-4 h-4 opacity-70" />
             </a>
           </div>
 
@@ -107,35 +95,20 @@
 
           <div class="grid grid-cols-2 md:grid-cols-4 gap-10">
 
-            <div
-              v-for="col in linkCols"
-              :key="col.title"
-            >
-              <h4
-                class="text-sm font-semibold text-[#1d1d1f] mb-5"
-              >
+            <div v-for="col in linkCols" :key="col.title">
+              <h4 class="text-sm font-semibold text-[#1d1d1f] mb-5">
                 {{ col.title }}
               </h4>
 
               <ul class="space-y-3">
 
-                <li
-                  v-for="link in col.links"
-                  :key="link.label"
-                >
-                  <RouterLink
-                    v-if="link.to"
-                    :to="link.to"
-                    class="text-sm text-black/60 hover:text-black transition-colors"
-                  >
+                <li v-for="link in col.links" :key="link.label">
+                  <RouterLink v-if="link.to" :to="link.to"
+                    class="text-sm text-black/60 hover:text-black transition-colors">
                     {{ link.label }}
                   </RouterLink>
 
-                  <a
-                    v-else
-                    href="#"
-                    class="text-sm text-black/60 hover:text-black transition-colors"
-                  >
+                  <a v-else href="#" class="text-sm text-black/60 hover:text-black transition-colors">
                     {{ link.label }}
                   </a>
                 </li>
@@ -153,21 +126,15 @@
 
     <!-- BOTTOM -->
     <div class="border-t border-black/5">
-      <div
-        class="max-w-7xl mx-auto px-6 lg:px-10 py-5 flex flex-col md:flex-row items-center justify-between gap-4"
-      >
+      <div class="max-w-7xl mx-auto px-6 lg:px-10 py-5 flex flex-col md:flex-row items-center justify-between gap-4">
 
         <p class="text-xs text-black/40">
           Copyright © 2026 ETEC Store. All rights reserved.
         </p>
 
         <div class="flex items-center gap-5 flex-wrap">
-          <a
-            v-for="item in bottomLinks"
-            :key="item"
-            href="#"
-            class="text-xs text-black/40 hover:text-black transition-colors"
-          >
+          <a v-for="item in bottomLinks" :key="item" href="#"
+            class="text-xs text-black/40 hover:text-black transition-colors">
             {{ item }}
           </a>
         </div>
@@ -240,21 +207,25 @@ const trustItems = [
     icon: IconPackage,
     label: 'Free Shipping',
     desc: 'On orders over $100',
+    color: 'text-[#2563eb]'
   },
   {
     icon: IconLock,
     label: 'Secure Payment',
     desc: '100% protected checkout',
+    color: 'text-[#059669]'
   },
   {
     icon: IconRefresh,
     label: 'Easy Returns',
     desc: '30-day return policy',
+    color: 'text-[#ea580c]'
   },
   {
     icon: IconZap,
     label: 'Fast Delivery',
     desc: 'Quick nationwide shipping',
+    color: 'text-[#7c3aed]'
   },
 ]
 
