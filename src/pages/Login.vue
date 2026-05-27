@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-[#0e0e11] flex items-center justify-center p-4 relative overflow-hidden font-[#DM_Sans,sans-serif]">
+  <div class="min-h-screen bg-[#0e0e11] flex items-center justify-center p-4 relative overflow-hidden" style="font-family: -apple-system, 'SF Pro Text', 'Helvetica Neue', sans-serif;">
     
     <div class="absolute rounded-full filter blur-[80px] pointer-events-none w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(255,200,80,0.12)_0%,transparent_70%)] -top-[120px] -left-[100px] animate-[drift_12s_ease-in-out_infinite_alternate]"></div>
     <div class="absolute rounded-full filter blur-[80px] pointer-events-none w-[400px] h-[400px] bg-[radial-gradient(circle,rgba(80,120,255,0.10)_0%,transparent_70%)] -bottom-[80px] -right-[60px] animate-[drift_16s_ease-in-out_infinite_alternate-reverse]"></div>
@@ -11,20 +11,20 @@
       <div class="flex-1 p-9 flex flex-col gap-6">
         
         <div class="flex items-center gap-2.5">
-          <div class="w-9 h-9 bg-gradient-to-br from-[#f5c842] to-[#e88c2a] rounded-[8px] grid place-items-center font-['Playfair_Display',serif] font-bold text-[1.1rem] text-[#0e0e11] tracking-[-0.5px]">E</div>
+          <div class="w-9 h-9 bg-gradient-to-br from-[#f5c842] to-[#e88c2a] rounded-[8px] grid place-items-center font-bold text-[1.1rem] text-[#0e0e11] tracking-[-0.5px]">E</div>
           <span class="text-[0.875rem] font-semibold text-white/50 tracking-[0.08em] uppercase">Envoy</span>
         </div>
 
         <div class="flex flex-col gap-1">
-          <h1 class="font-['Playfair_Display',serif] text-[2.4rem] font-bold text-[#f4f4f5] leading-none tracking-[-0.02em] m-0">
-            Welcome<br><em class="not-italic text-[#f5c842]">back.</em>
+          <h1 class="text-[2.2rem] font-bold text-[#f4f4f5] leading-[1.1] tracking-[-0.03em] m-0">
+            Welcome <span class="not-italic text-[#f5c842]">back.</span>
           </h1>
-          <p class="text-[0.875rem] text-white/35 font-normal m-0">Sign in to continue</p>
+          <p class="text-[13.5px] text-white/35 font-normal m-0 mt-0.5">Sign in to continue</p>
         </div>
 
         <div class="flex items-center gap-2.5 bg-[#f5c842]/[0.07] border border-[#f5c842]/15 rounded-xl p-3 text-[0.8rem] text-white/55">
           <span class="bg-[#f5c842]/20 text-[#f5c842] text-[0.7rem] font-semibold tracking-[0.06em] uppercase px-1.5 py-0.5 rounded-[5px] shrink-0">Demo</span>
-          <span class="font-sans">
+          <span>
             <code class="font-mono text-white/75 bg-white/5 px-1 py-0.5 rounded border border-white/5 text-[0.78rem]">emilys</code> &nbsp;/&nbsp; <code class="font-mono text-white/75 bg-white/5 px-1 py-0.5 rounded border border-white/5 text-[0.78rem]">emilyspass</code>
           </span>
         </div>
@@ -32,7 +32,7 @@
         <form class="flex flex-col gap-4" @submit.prevent="handleLogin">
           
           <div class="flex flex-col gap-1.5">
-            <label class="text-[0.78rem] font-semibold text-white/45 tracking-[0.06em] uppercase">Username</label>
+            <label class="text-[0.75rem] font-semibold text-white/45 tracking-[0.06em] uppercase">Username</label>
             <input
               v-model="form.username"
               type="text"
@@ -42,7 +42,7 @@
           </div>
 
           <div class="flex flex-col gap-1.5">
-            <label class="text-[0.78rem] font-semibold text-white/45 tracking-[0.06em] uppercase">Password</label>
+            <label class="text-[0.75rem] font-semibold text-white/45 tracking-[0.06em] uppercase">Password</label>
             <input
               v-model="form.password"
               type="password"
