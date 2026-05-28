@@ -64,20 +64,16 @@
           </p>
 
           <!-- NEWSLETTER -->
-          <div class="mb-8">
-            <h4 class="text-sm font-semibold mb-3">
-              Subscribe to updates
-            </h4>
-
-            <div class="flex flex-col sm:flex-row gap-3">
-              <input v-model="email" type="email" placeholder="Email address"
-                class="flex-1 h-12 px-4 rounded-full bg-white border border-black/10 outline-none focus:border-black/30 transition-all" />
-
-              <button @click="subscribe"
-                class="h-12 px-6 rounded-full bg-[#1d1d1f] text-white text-sm font-medium hover:opacity-90 transition">
-                Subscribe
-              </button>
+          <div class="lg:col-span-4 w-full">
+            
+            <div class="mb-8 w-full">
+              <h4 class="text-sm font-semibold mb-3">Subscribe to updates</h4>
+              <div class="grid grid-cols-1 sm:flex sm:flex-row gap-3 w-full">
+                <input v-model="email" type="email" placeholder="Email address" class="w-full sm:flex-1 h-12 px-4 rounded-full bg-white border border-black/10 outline-none text-sm box-border" />
+                <button @click="subscribe" class="w-full sm:w-auto h-12 px-6 rounded-full bg-[#1d1d1f] text-white text-sm font-medium hover:opacity-90 transition flex items-center justify-center box-border">Subscribe</button>
+              </div>
             </div>
+
           </div>
 
           <!-- SOCIAL -->
