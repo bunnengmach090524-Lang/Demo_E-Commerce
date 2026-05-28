@@ -220,20 +220,22 @@ const values = [
 ]
 
 /* ── Team — static avatars, set your image paths directly here ───── */
+import BunNengImage from '@/assets/team/BunNengImage.png'
+import LenImage from '@/assets/team/LenImage.jpg'
 const team = ref([
   {
     name: 'Team Member 01',
     role: 'UI/UX Designer & frontend developer',
     desc: 'Crafts the visual language of the platform — from wireframes to polished interfaces that delight and convert.',
     // ✅ Put your image path here, e.g. '/src/assets/team/member1.jpg'
-    avatar: '/src/assets/team/BunNengImage.png',
+    avatar: BunNengImage,
   },
   {
     name: 'Team Member 02',
     role: 'Frontend Developer',
     desc: 'Focused on API integration, reusable components, user interaction, and improving performance for a seamless shopping experience.',
     // ✅ Put your image path here, e.g. '/src/assets/team/member2.jpg'
-    avatar: '/src/assets/team/LenImage.jpg',
+    avatar: LenImage,
   },
 ])
 </script>
