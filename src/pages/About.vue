@@ -56,7 +56,7 @@
         </ul>
       </div>
 
-      <!-- Image upload card -->
+      <!-- Image upload card (mission image — kept uploadable) -->
       <div
         class="relative group rounded-2xl overflow-hidden border-2 border-dashed border-gray-200 bg-gray-50 aspect-[4/3] flex flex-col items-center justify-center cursor-pointer hover:border-primary/50 hover:bg-primary/5 transition-all duration-200"
         @click="triggerUpload"
@@ -116,21 +116,17 @@
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         <div
           v-for="(member, i) in team" :key="i"
-          class="group bg-white border border-gray-100 rounded-2xl p-6 hover:border-primary/30 hover:shadow-md transition-all duration-200"
+          class="bg-white border border-gray-100 rounded-2xl p-6 hover:border-primary/30 hover:shadow-md transition-all duration-200"
         >
-          <!-- Avatar with upload -->
-          <div
-            class="relative w-16 h-16 rounded-2xl overflow-hidden bg-gray-100 mb-4 cursor-pointer"
-            @click="triggerAvatarUpload(i)"
-          >
-            <img v-if="member.avatar" :src="member.avatar" :alt="member.name" class="w-full h-full object-cover" />
+          <!-- ✅ Static avatar — no click handler, no upload, no hover overlay -->
+          <div class="relative w-16 h-16 rounded-2xl overflow-hidden bg-gray-100 mb-4">
+            <img
+              v-if="member.avatar"
+              :src="member.avatar"
+              :alt="member.name"
+              class="w-full h-full object-cover"
+            />
             <div v-else class="w-full h-full flex items-center justify-center text-2xl select-none">👤</div>
-            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center">
-              <svg class="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/>
-              </svg>
-            </div>
-            <input :ref="el => avatarInputs[i] = el" type="file" accept="image/*" class="hidden" @change="e => onAvatarChange(e, i)" />
           </div>
 
           <h3 class="font-bold text-gray-900 mb-0.5">{{ member.name }}</h3>
@@ -162,10 +158,9 @@
 <script setup>
 import { ref, defineComponent, h } from 'vue'
 
-/* ── Image upload state (persisted to localStorage as base64) ────── */
+/* ── Mission image upload (still uploadable) ─────────────────────── */
 const missionImage = ref(localStorage.getItem('about_mission_img') || null)
 const uploadInput  = ref(null)
-const avatarInputs = ref([])
 
 function toBase64(file) {
   return new Promise(resolve => {
@@ -189,14 +184,6 @@ async function onDrop(e) {
   const b64 = await toBase64(file)
   missionImage.value = b64
   localStorage.setItem('about_mission_img', b64)
-}
-function triggerAvatarUpload(i) { avatarInputs.value[i]?.click() }
-async function onAvatarChange(e, i) {
-  const file = e.target.files?.[0]
-  if (!file) return
-  const b64 = await toBase64(file)
-  team.value[i].avatar = b64
-  localStorage.setItem(`about_avatar_${i}`, b64)
 }
 
 /* ── Data ────────────────────────────────────────────────────────── */
@@ -232,8 +219,21 @@ const values = [
   { icon: IconStar,   title: 'Quality',         desc: 'We curate only the best — if it doesn\'t meet our bar, it\'s not here.', bg: 'bg-violet-50',  color: 'text-violet-500' },
 ]
 
+/* ── Team — static avatars, set your image paths directly here ───── */
 const team = ref([
-  { name: 'Team Member 01', role: 'UI/UX Designer & frontend developer', desc: 'Crafts the visual language of the platform — from wireframes to polished interfaces that delight and convert.', avatar: localStorage.getItem('about_avatar_0') || null },
-  { name: 'Team Member 02', role: 'Frontend Developer', desc: 'Focused on API integration, reusable components, user interaction, and improving performance for a seamless shopping experience.', avatar: localStorage.getItem('about_avatar_1') || null },
+  {
+    name: 'Team Member 01',
+    role: 'UI/UX Designer & frontend developer',
+    desc: 'Crafts the visual language of the platform — from wireframes to polished interfaces that delight and convert.',
+    // ✅ Put your image path here, e.g. '/src/assets/team/member1.jpg'
+    avatar: '/src/assets/team/BunNengImage.png',
+  },
+  {
+    name: 'Team Member 02',
+    role: 'Frontend Developer',
+    desc: 'Focused on API integration, reusable components, user interaction, and improving performance for a seamless shopping experience.',
+    // ✅ Put your image path here, e.g. '/src/assets/team/member2.jpg'
+    avatar: '/src/assets/team/LenImage.jpg',
+  },
 ])
 </script>
