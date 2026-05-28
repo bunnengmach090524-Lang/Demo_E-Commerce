@@ -83,7 +83,7 @@
           <!-- SOCIAL -->
           <div class="flex items-center gap-3">
             <a v-for="s in socials" :key="s.label" :href="s.href" :aria-label="s.label"
-              class="w-10 h-10 rounded-full border border-black/10 bg-white hover:bg-black hover:text-white transition-all duration-300 flex items-center justify-center">
+              class="w-10 h-10 rounded-full border border-black/10 bg-white hover:bg-gray-400 hover:text-white transition-all duration-300 flex items-center justify-center">
               <img :src="s.icon" :alt="s.label" class="w-4 h-4 opacity-70" />
             </a>
           </div>
