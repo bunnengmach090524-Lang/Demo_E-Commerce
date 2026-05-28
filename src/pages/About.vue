@@ -113,7 +113,7 @@
         <h2 class="font-extrabold text-3xl text-gray-900 tracking-tight">People behind the platform</h2>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">
         <div
           v-for="(member, i) in team" :key="i"
           class="bg-white border border-gray-100 rounded-2xl p-6 hover:border-primary/30 hover:shadow-md transition-all duration-200"
