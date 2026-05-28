@@ -14,7 +14,7 @@
           <div class="w-10 h-10 bg-gradient-to-br from-[#f5c842] to-[#e88c2a] rounded-xl grid place-items-center font-black text-xl text-[#0e0e11]">
             E
           </div>
-          <span class="text-[0.875rem] font-bold text-white/50 tracking-[0.08em] uppercase">Envoy</span>
+          <span class="text-[0.875rem] font-bold text-white/50 tracking-[0.08em] uppercase">ETEC Store</span>
         </div>
 
         <div class="flex flex-col gap-1">

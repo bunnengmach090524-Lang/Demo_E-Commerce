@@ -12,7 +12,7 @@
         
         <div class="flex items-center gap-2.5">
           <div class="w-9 h-9 bg-gradient-to-br from-[#f5c842] to-[#e88c2a] rounded-[8px] grid place-items-center font-bold text-[1.1rem] text-[#0e0e11] tracking-[-0.5px]">E</div>
-          <span class="text-[0.875rem] font-semibold text-white/50 tracking-[0.08em] uppercase">Envoy</span>
+          <span class="text-[0.875rem] font-semibold text-white/50 tracking-[0.08em] uppercase">ETEC Store</span>
         </div>
 
         <div class="flex flex-col gap-1">
