@@ -113,7 +113,7 @@
         <h2 class="font-extrabold text-3xl text-gray-900 tracking-tight">People behind the platform</h2>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">
         <div
           v-for="(member, i) in team" :key="i"
           class="group bg-white border border-gray-100 rounded-2xl p-6 hover:border-primary/30 hover:shadow-md transition-all duration-200"
@@ -233,7 +233,7 @@ const values = [
 ]
 
 const team = ref([
-  { name: 'Team Member 01', role: 'UI/UX Designer & frontend developer', desc: 'Crafts the visual language of the platform — from wireframes to polished interfaces that delight and convert.', avatar: localStorage.getItem('about_avatar_0') || null },
-  { name: 'Team Member 02', role: 'Frontend Developer', desc: 'Focused on API integration, reusable components, user interaction, and improving performance for a seamless shopping experience.', avatar: localStorage.getItem('about_avatar_1') || null },
+  { name: 'MACH BUNNENG', role: 'UI/UX Designer & frontend developer', desc: 'Crafts the visual language of the platform — from wireframes to polished interfaces that delight and convert.', avatar: localStorage.getItem('about_avatar_0') || null },
+  { name: 'SENG SOMALEN', role: 'Frontend Developer', desc: 'Focused on API integration, reusable components, user interaction, and improving performance for a seamless shopping experience.', avatar: localStorage.getItem('about_avatar_1') || null },
 ])
 </script>
