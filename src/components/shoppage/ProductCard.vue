@@ -108,17 +108,25 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { computed } from 'vue'
 import { useCartStore } from '@/stores/cart'
+// ១. Import Wishlist Store ចូលមកប្រើប្រាស់
+import { useWishlistStore } from '@/stores/wishlist'
 
 const props = defineProps({ product: { type: Object, required: true } })
 
 const cartStore = useCartStore()
-const isWishlisted = ref(false)
+// ២. បង្កើត Variable សម្រាប់ហៅប្រើប្រាស់ Wishlist Store
+const wishlistStore = useWishlistStore()
 
 const originalPrice = computed(() => {
   const d = props.product.discountPercentage || 0
   return (props.product.price / (1 - d / 100)).toFixed(2)
+})
+
+// ៣. ប្ដូរមកប្រើ computed property ដើម្បីឆែកមើលថាផលិតផលនេះមានក្នុង Wishlist ដែរឬទេ (វាមានភាព Reactive ជាងមុន)
+const isWishlisted = computed(() => {
+  return wishlistStore.isInWishlist(props.product.id)
 })
 
 function addToCart() {
@@ -126,19 +134,8 @@ function addToCart() {
   window.$toast?.success(`${props.product.title} added to cart!`)
 }
 
+// ៤. សម្រួលអនុគមន៍ toggleWishlist ឲ្យមកហៅប្រើ function របស់ Pinia Store វិញយ៉ាងខ្លី
 function toggleWishlist() {
-  isWishlisted.value = !isWishlisted.value
-  const wishlist = JSON.parse(localStorage.getItem('wishlist') || '[]')
-  if (isWishlisted.value) {
-    if (!wishlist.find(i => i.id === props.product.id)) {
-      wishlist.push({ id: props.product.id, title: props.product.title, price: props.product.price, thumbnail: props.product.thumbnail })
-    }
-  } else {
-    const idx = wishlist.findIndex(i => i.id === props.product.id)
-    if (idx > -1) wishlist.splice(idx, 1)
-  }
-  localStorage.setItem('wishlist', JSON.stringify(wishlist))
+  wishlistStore.toggleItem(props.product)
 }
-
-isWishlisted.value = JSON.parse(localStorage.getItem('wishlist') || '[]').some(i => i.id === props.product.id)
 </script>
