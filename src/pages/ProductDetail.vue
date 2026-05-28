@@ -37,7 +37,7 @@
       <div class="grid lg:grid-cols-2 gap-16 items-start">
 
         <!-- LEFT: Gallery -->
-        <div class="flex gap-4 sticky top-24">
+        <div class="flex gap-4 lg:sticky lg:top-24">
           <!-- Thumbnails -->
           <div class="flex flex-col gap-2">
             <button
