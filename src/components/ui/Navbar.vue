@@ -1,11 +1,10 @@
 <template>
   <header
     class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
-    :class="isScrolled ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100' : 'bg-white/80 backdrop-blur-sm'"
+    :class="isScrolled ? 'bg-[#dfe1e6] backdrop-blur-md shadow-sm border-b border-gray-100' : 'bg-[#dfe1e6] backdrop-blur-sm'"
   >
     <div class="container">
       <div class="flex items-center h-[64px] gap-8">
-
         <!-- Logo -->
         <RouterLink to="/" class="flex items-center gap-2 shrink-0">
           <span class="w-8 h-8 bg-gray-900 text-white rounded-lg grid place-items-center text-sm font-black">E</span>
@@ -98,10 +97,10 @@
 
           <!-- Guest -->
           <template v-if="!authStore.isLoggedIn">
-            <RouterLink to="/login" class="hidden sm:block text-sm text-gray-500 px-3.5 py-2 rounded-lg hover:text-gray-900 hover:bg-gray-100 transition-colors duration-200">
+            <RouterLink to="/login" class="hidden lg:block text-sm text-gray-500 px-3.5 py-2 rounded-lg hover:text-gray-900 hover:bg-gray-100 transition-colors duration-200">
               Login
             </RouterLink>
-            <RouterLink to="/register" class="px-4 py-2 bg-gray-900 text-white text-sm font-semibold rounded-xl hover:bg-gray-700 transition-colors duration-200">
+            <RouterLink to="/register" class="hidden lg:block px-4 py-2 bg-gray-900 text-white text-sm font-semibold rounded-xl hover:bg-gray-700 transition-colors duration-200">
               Register
             </RouterLink>
           </template>
