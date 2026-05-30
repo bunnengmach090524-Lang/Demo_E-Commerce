@@ -1,7 +1,10 @@
 <template>
-  <div id="app-root">
+  <div
+    id="app-root"
+    class="min-h-screen bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100 transition-colors duration-300"
+  >
     <Navbar />
-    <main>
+    <main class="bg-white dark:bg-gray-950 transition-colors duration-300">
       <RouterView v-slot="{ Component }">
         <Transition name="page" mode="out-in">
           <component :is="Component" />
@@ -9,17 +12,15 @@
       </RouterView>
     </main>
     <Footer />
-    <!-- Cart Drawer -->
     <CartDrawer />
-    <!-- Toast notifications -->
     <ToastContainer />
   </div>
 </template>
 
 <script setup>
-import Navbar from '@/components/ui/Navbar.vue'
-import Footer from '@/components/ui/Footer.vue'
-import CartDrawer from '@/components/ui/CartDrawer.vue'
+import Navbar         from '@/components/ui/Navbar.vue'
+import Footer         from '@/components/ui/Footer.vue'
+import CartDrawer     from '@/components/ui/CartDrawer.vue'
 import ToastContainer from '@/components/ui/ToastContainer.vue'
 </script>
 
