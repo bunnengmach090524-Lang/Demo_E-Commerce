@@ -1,0 +1,673 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { text-decoration: none; color: inherit; }
+  button { cursor: pointer; border: none; outline: none; font-family: inherit; }
+  img { max-width: 100%; display: block; }
+}
+
+@layer components {
+  .container {
+    @apply max-w-7xl mx-auto px-6;
+  }
+  .btn-primary {
+    @apply bg-primary text-white font-display font-semibold px-6 py-3 rounded-xl 
+           inline-flex items-center gap-2 transition-all duration-300
+           hover:bg-primary-dark hover:-translate-y-0.5 hover:shadow-primary;
+  }
+  .btn-accent {
+    @apply bg-accent text-dark font-display font-semibold px-6 py-3 rounded-xl
+           inline-flex items-center gap-2 transition-all duration-300
+           hover:bg-accent-dark hover:-translate-y-0.5 hover:shadow-accent;
+  }
+  .btn-outline {
+    @apply border-2 border-gray-200 text-gray-700 font-display font-semibold px-6 py-3 rounded-xl
+           inline-flex items-center gap-2 transition-all duration-300
+           hover:border-primary hover:text-primary;
+  }
+  .badge-green {
+    @apply bg-emerald-500 text-white text-xs font-bold px-3 py-1 rounded-full;
+  }
+  .badge-accent {
+    @apply bg-accent text-dark text-xs font-bold px-3 py-1 rounded-full;
+  }
+  .skeleton {
+    @apply bg-gradient-to-r from-gray-100 via-gray-200 to-gray-100 animate-shimmer rounded-xl;
+    background-size: 200% 100%;
+  }
+}
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { text-decoration: none; color: inherit; }
+  button { cursor: pointer; border: none; outline: none; font-family: inherit; }
+  img { max-width: 100%; display: block; }
+}
+
+@layer components {
+  .container {
+    @apply max-w-7xl mx-auto px-6;
+  }
+  .btn-primary {
+    @apply bg-primary text-white font-display font-semibold px-6 py-3 rounded-xl
+           inline-flex items-center gap-2 transition-all duration-300
+           hover:bg-primary-dark hover:-translate-y-0.5 hover:shadow-primary;
+  }
+  .btn-accent {
+    @apply bg-accent text-dark font-display font-semibold px-6 py-3 rounded-xl
+           inline-flex items-center gap-2 transition-all duration-300
+           hover:bg-accent-dark hover:-translate-y-0.5 hover:shadow-accent;
+  }
+  .btn-outline {
+    @apply border-2 border-gray-200 text-gray-700 font-display font-semibold px-6 py-3 rounded-xl
+           inline-flex items-center gap-2 transition-all duration-300
+           hover:border-primary hover:text-primary;
+  }
+  .badge-green {
+    @apply bg-emerald-500 text-white text-xs font-bold px-3 py-1 rounded-full;
+  }
+  .badge-accent {
+    @apply bg-accent text-dark text-xs font-bold px-3 py-1 rounded-full;
+  }
+  .skeleton {
+    @apply bg-gradient-to-r from-gray-100 via-gray-200 to-gray-100 animate-shimmer rounded-xl;
+    background-size: 200% 100%;
+  }
+}
+
+/* ============================================================
+   GLOBAL DARK MODE
+   ============================================================ */
+
+/* Smooth transitions on every element.
+   filter included so icon invert() animates smoothly. */
+*, *::before, *::after {
+  transition:
+    background-color 0.3s ease,
+    border-color     0.3s ease,
+    color            0.25s ease,
+    box-shadow       0.3s ease,
+    opacity          0.2s ease,
+    filter           0.3s ease;
+}
+
+/*
+  ── Prevent flash of light mode on page load ──
+  Add this in index.html <head> BEFORE any CSS link:
+
+  <script>
+    const s = localStorage.getItem('theme')
+    const p = window.matchMedia('(prefers-color-scheme: dark)').matches
+    if (s === 'dark' || (!s && p)) document.documentElement.classList.add('dark')
+  </script>
+*/
+
+/* ════════════════════════════════════════════
+   BASE
+   ════════════════════════════════════════════ */
+html.dark {
+  color-scheme: dark;
+}
+html.dark body {
+  background-color: #030712;
+  color: #f9fafb;
+}
+
+/* Page wrappers — catches grey bg on all pages */
+html.dark main,
+html.dark #app,
+html.dark #app-root,
+html.dark #root,
+html.dark [id="app"],
+html.dark .min-h-screen {
+  background-color: #030712 !important;
+}
+
+/* ════════════════════════════════════════════
+   BACKGROUNDS
+   ════════════════════════════════════════════ */
+html.dark .bg-white        { background-color: #111827 !important; }
+html.dark .bg-gray-50      { background-color: #0f1117 !important; }
+html.dark .bg-gray-100     { background-color: #0f1117 !important; }
+html.dark .bg-gray-200     { background-color: #374151 !important; }
+html.dark .bg-gray-900     { background-color: #f9fafb !important; }
+
+/* Brand / custom bg */
+html.dark .bg-\[\#dfe1e6\] { background-color: #0d0d14 !important; }
+html.dark .bg-\[\#1d1d1f\] { background-color: #f9fafb !important; }
+
+/* Translucent whites */
+html.dark .bg-white\/60    { background-color: rgba(255,255,255,0.04) !important; }
+html.dark .bg-white\/80    { background-color: rgba(15,15,26,0.85)    !important; }
+html.dark .bg-white\/95    { background-color: rgba(15,15,26,0.97)    !important; }
+
+/* Backdrop */
+html.dark .bg-gray-950\/80 { background-color: rgba(3,7,18,0.85) !important; }
+html.dark .bg-gray-950\/95 { background-color: rgba(3,7,18,0.97) !important; }
+
+/* ════════════════════════════════════════════
+   TEXT
+   ════════════════════════════════════════════ */
+html.dark .text-gray-900     { color: #f9fafb !important; }
+html.dark .text-gray-800     { color: #f3f4f6 !important; }
+html.dark .text-gray-700     { color: #e5e7eb !important; }
+html.dark .text-gray-600     { color: #d1d5db !important; }
+html.dark .text-gray-500     { color: #9ca3af !important; }
+html.dark .text-gray-400     { color: #6b7280 !important; }
+
+/* Brand text */
+html.dark .text-\[\#1d1d1f\] { color: #f9fafb !important; }
+
+/* Alpha blacks → alpha whites */
+html.dark .text-black\/60    { color: rgba(255,255,255,0.65) !important; }
+html.dark .text-black\/50    { color: rgba(255,255,255,0.55) !important; }
+html.dark .text-black\/40    { color: rgba(255,255,255,0.40) !important; }
+
+/* ════════════════════════════════════════════
+   BORDERS
+   ════════════════════════════════════════════ */
+html.dark .border-gray-100  { border-color: #1f2937 !important; }
+html.dark .border-gray-200  { border-color: #374151 !important; }
+html.dark .border-gray-300  { border-color: #4b5563 !important; }
+
+/* Alpha black borders → alpha white */
+html.dark .border-black\/5  { border-color: rgba(255,255,255,0.06) !important; }
+html.dark .border-black\/10 { border-color: rgba(255,255,255,0.10) !important; }
+
+/* ════════════════════════════════════════════
+   BUTTONS
+   ════════════════════════════════════════════ */
+
+/* Primary dark button (bg-gray-900 text-white) → inverted */
+html.dark .bg-gray-900.text-white       { background-color: #f9fafb !important; color: #111827 !important; }
+html.dark .bg-gray-900.text-white:hover { background-color: #e5e7eb !important; }
+
+/* Outline / ghost buttons */
+html.dark .border-gray-200.text-gray-700 {
+  border-color: #374151 !important;
+  color: #d1d5db !important;
+}
+html.dark .border-gray-200.text-gray-700:hover {
+  border-color: #6b7280     !important;
+  color: #f9fafb            !important;
+  background-color: #1f2937 !important;
+}
+
+/* Icon buttons */
+html.dark .rounded-xl:hover,
+html.dark .rounded-lg:hover { background-color: #1f2937 !important; }
+
+/* "Add to Cart" bg-white buttons (product grid) → dark */
+html.dark button.bg-white,
+html.dark a.bg-white {
+  background-color: #1f2937 !important;
+  color: #f9fafb !important;
+  border-color: rgba(255,255,255,0.10) !important;
+}
+html.dark button.bg-white:hover,
+html.dark a.bg-white:hover {
+  background-color: #374151 !important;
+  color: #ffffff !important;
+}
+
+/* "View" outline buttons (product grid) */
+html.dark button.border,
+html.dark a.border {
+  border-color: rgba(255,255,255,0.15) !important;
+  color: #e5e7eb !important;
+  background-color: transparent !important;
+}
+html.dark button.border:hover,
+html.dark a.border:hover {
+  background-color: #1f2937 !important;
+  border-color: rgba(255,255,255,0.30) !important;
+  color: #ffffff !important;
+}
+
+/* bg-gray-900 buttons (cards, cart, etc.) → inverted */
+html.dark button.bg-gray-900       { background-color: #f9fafb !important; color: #111827 !important; }
+html.dark button.bg-gray-900:hover { background-color: #e5e7eb !important; }
+
+/* Remove / heart buttons */
+html.dark button.text-red-500,
+html.dark a.text-red-500              { color: #f87171 !important; }
+html.dark button.hover\:text-red-700:hover,
+html.dark a.hover\:text-red-700:hover { color: #fca5a5 !important; }
+
+/* ════════════════════════════════════════════
+   INPUTS
+   ════════════════════════════════════════════ */
+html.dark input,
+html.dark textarea,
+html.dark select {
+  background-color: #1f2937 !important;
+  border-color:     #374151 !important;
+  color:            #f9fafb !important;
+}
+html.dark input::placeholder,
+html.dark textarea::placeholder { color: rgba(255,255,255,0.30) !important; }
+html.dark input:focus,
+html.dark textarea:focus {
+  border-color: #6b7280 !important;
+  outline: none;
+}
+
+/* ════════════════════════════════════════════
+   CARDS
+   ════════════════════════════════════════════ */
+html.dark .rounded-2xl,
+html.dark .rounded-xl,
+html.dark .rounded-lg { border-color: rgba(255,255,255,0.07); }
+
+/* Product / generic cards */
+html.dark .group,
+html.dark [class*="card"] { background-color: #111827; }
+
+/* Hover card lift */
+html.dark .hover\:shadow-lg:hover { box-shadow: 0 10px 40px rgba(0,0,0,0.50)  !important; }
+html.dark .hover\:shadow-xl:hover { box-shadow: 0 20px 60px rgba(0,0,0,0.55)  !important; }
+html.dark .shadow-lg              { box-shadow: 0 10px 40px rgba(0,0,0,0.45)  !important; }
+html.dark .shadow-sm              { box-shadow: 0  2px 10px rgba(0,0,0,0.35)  !important; }
+
+/* ════════════════════════════════════════════
+   BADGES / TAGS / PILLS
+   ════════════════════════════════════════════ */
+html.dark .bg-green-100    { background-color: rgba(16,185,129,0.15) !important; }
+html.dark .text-green-700  { color: #34d399 !important; }
+html.dark .bg-red-100      { background-color: rgba(239,68,68,0.15)  !important; }
+html.dark .text-red-700    { color: #f87171 !important; }
+html.dark .bg-blue-100     { background-color: rgba(59,130,246,0.15) !important; }
+html.dark .text-blue-700   { color: #60a5fa !important; }
+html.dark .bg-yellow-100   { background-color: rgba(234,179,8,0.15)  !important; }
+html.dark .text-yellow-700 { color: #fbbf24 !important; }
+html.dark .text-yellow-400 { color: #fbbf24 !important; }
+html.dark .text-yellow-500 { color: #f59e0b !important; }
+
+/* ════════════════════════════════════════════
+   DIVIDERS / HR
+   ════════════════════════════════════════════ */
+html.dark hr,
+html.dark .divide-gray-100 > * + *,
+html.dark .divide-gray-200 > * + * { border-color: #1f2937 !important; }
+
+/* ════════════════════════════════════════════
+   DROPDOWNS / MENUS / MODALS
+   ════════════════════════════════════════════ */
+html.dark [class*="dropdown"],
+html.dark [class*="menu"],
+html.dark [class*="modal"],
+html.dark [class*="popover"] {
+  background-color: #111827 !important;
+  border-color:     #1f2937 !important;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6) !important;
+}
+
+/* ════════════════════════════════════════════
+   FOOTER
+   ════════════════════════════════════════════ */
+html.dark footer {
+  background-color: #0d0d14 !important;
+  border-color: rgba(255,255,255,0.06) !important;
+  color: #f9fafb !important;
+}
+html.dark footer .bg-white\/60 {
+  background-color: rgba(255,255,255,0.04) !important;
+  border-color:     rgba(255,255,255,0.07) !important;
+}
+html.dark footer .bg-white\/60:hover { background-color: rgba(255,255,255,0.08) !important; }
+html.dark footer .bg-gradient-to-b   { background: rgba(255,255,255,0.06) !important; border-color: rgba(255,255,255,0.08) !important; }
+html.dark footer .bg-\[\#1d1d1f\]    { background-color: #f9fafb !important; color: #111827 !important; }
+html.dark footer input[type="email"] {
+  background-color: rgba(255,255,255,0.05) !important;
+  border-color:     rgba(255,255,255,0.10) !important;
+  color: #f9fafb !important;
+}
+html.dark footer button.bg-\[\#1d1d1f\]       { background-color: #f9fafb !important; color: #111827 !important; }
+html.dark footer button.bg-\[\#1d1d1f\]:hover { background-color: #e5e7eb !important; }
+html.dark footer a.rounded-full               { border-color: rgba(255,255,255,0.12) !important; background-color: transparent !important; }
+html.dark footer a.rounded-full:hover         { background-color: rgba(255,255,255,0.10) !important; }
+html.dark footer a.rounded-full img           { filter: invert(1) brightness(0.85) !important; opacity: 0.7; }
+html.dark footer a.rounded-full:hover img     { filter: invert(1) brightness(1)    !important; opacity: 1; }
+html.dark footer a                            { color: rgba(255,255,255,0.50) !important; }
+html.dark footer a:hover                      { color: #ffffff !important; }
+html.dark footer .border-t                    { border-color: rgba(255,255,255,0.06) !important; }
+
+/* ════════════════════════════════════════════
+   CONTACT PAGE — Follow Us social icons
+   ════════════════════════════════════════════ */
+
+/* Circle wrappers */
+html.dark [class*="social"] a,
+html.dark [class*="follow"] a,
+html.dark [class*="Follow"] a,
+html.dark [class*="social-link"] {
+  background-color: rgba(255,255,255,0.07) !important;
+  border-color:     rgba(255,255,255,0.15) !important;
+}
+html.dark [class*="social"] a:hover,
+html.dark [class*="follow"] a:hover,
+html.dark [class*="Follow"] a:hover,
+html.dark [class*="social-link"]:hover {
+  background-color: rgba(255,255,255,0.14) !important;
+  border-color:     rgba(255,255,255,0.28) !important;
+}
+
+/* SVG element — color + fill for both currentColor and explicit fills */
+html.dark [class*="social"] svg,
+html.dark [class*="follow"] svg,
+html.dark [class*="Follow"] svg,
+html.dark a[href*="facebook"] svg,
+html.dark a[href*="instagram"] svg,
+html.dark a[href*="twitter"] svg,
+html.dark a[href*="x.com"] svg,
+html.dark a[href*="tiktok"] svg,
+html.dark a[href*="youtube"] svg,
+html.dark a[href*="linkedin"] svg {
+  color: rgba(255,255,255,0.70) !important;
+  fill:  rgba(255,255,255,0.70) !important;
+}
+html.dark [class*="social"] a:hover svg,
+html.dark [class*="follow"] a:hover svg,
+html.dark [class*="Follow"] a:hover svg,
+html.dark a[href*="facebook"]:hover svg,
+html.dark a[href*="instagram"]:hover svg,
+html.dark a[href*="twitter"]:hover svg,
+html.dark a[href*="x.com"]:hover svg,
+html.dark a[href*="tiktok"]:hover svg,
+html.dark a[href*="youtube"]:hover svg,
+html.dark a[href*="linkedin"]:hover svg {
+  color: #ffffff !important;
+  fill:  #ffffff !important;
+}
+
+/* SVG child shapes — path / rect / circle */
+html.dark [class*="social"] svg path,
+html.dark [class*="social"] svg rect,
+html.dark [class*="social"] svg circle,
+html.dark [class*="follow"] svg path,
+html.dark [class*="follow"] svg rect,
+html.dark [class*="follow"] svg circle,
+html.dark [class*="Follow"] svg path,
+html.dark a[href*="facebook"] svg path,
+html.dark a[href*="instagram"] svg path,
+html.dark a[href*="twitter"] svg path,
+html.dark a[href*="x.com"] svg path,
+html.dark a[href*="tiktok"] svg path,
+html.dark a[href*="tiktok"] svg rect,
+html.dark a[href*="youtube"] svg path,
+html.dark a[href*="linkedin"] svg path {
+  fill: rgba(255,255,255,0.70) !important;
+  stroke: none !important;
+}
+html.dark [class*="social"] a:hover svg path,
+html.dark [class*="social"] a:hover svg rect,
+html.dark [class*="follow"] a:hover svg path,
+html.dark [class*="Follow"] a:hover svg path,
+html.dark a[href*="facebook"]:hover svg path,
+html.dark a[href*="instagram"]:hover svg path,
+html.dark a[href*="twitter"]:hover svg path,
+html.dark a[href*="x.com"]:hover svg path,
+html.dark a[href*="tiktok"]:hover svg path,
+html.dark a[href*="tiktok"]:hover svg rect,
+html.dark a[href*="youtube"]:hover svg path,
+html.dark a[href*="linkedin"]:hover svg path { fill: #ffffff !important; }
+
+/* <img> social icons — smooth invert */
+html.dark a[href*="facebook"] img,
+html.dark a[href*="instagram"] img,
+html.dark a[href*="twitter"] img,
+html.dark a[href*="x.com"] img,
+html.dark a[href*="tiktok"] img,
+html.dark a[href*="youtube"] img,
+html.dark a[href*="linkedin"] img,
+html.dark a[href*="pinterest"] img,
+html.dark [class*="social"] img,
+html.dark [class*="follow"] img {
+  filter: invert(1) brightness(0.80) !important;
+  opacity: 0.75;
+}
+html.dark a[href*="facebook"]:hover img,
+html.dark a[href*="instagram"]:hover img,
+html.dark a[href*="twitter"]:hover img,
+html.dark a[href*="x.com"]:hover img,
+html.dark a[href*="tiktok"]:hover img,
+html.dark a[href*="youtube"]:hover img,
+html.dark a[href*="linkedin"]:hover img,
+html.dark a[href*="pinterest"]:hover img,
+html.dark [class*="social"]:hover img,
+html.dark [class*="follow"]:hover img {
+  filter: invert(1) brightness(1) !important;
+  opacity: 1;
+}
+
+/* ════════════════════════════════════════════
+   SCROLLBAR
+   ════════════════════════════════════════════ */
+html.dark ::-webkit-scrollbar       { width: 6px; height: 6px; }
+html.dark ::-webkit-scrollbar-track { background: #111827; }
+html.dark ::-webkit-scrollbar-thumb { background: #374151; border-radius: 3px; }
+html.dark ::-webkit-scrollbar-thumb:hover { background: #4b5563; }
+
+/* ════════════════════════════════════════════
+   SELECTION
+   ════════════════════════════════════════════ */
+html.dark ::selection {
+  background-color: rgba(99,102,241,0.35);
+  color: #f9fafb;
+}
+html.dark footer a.rounded-full img {
+  filter: invert(1) brightness(0.85) !important;
+}
+
+html.dark footer button.rounded-full {
+  border: 1px solid rgba(255,255,255,0.15) !important;
+}
+/* ── Social icons: invert black SVGs to white in dark mode ── */
+html.dark a.rounded-full img,
+html.dark a[aria-label] img {
+  filter: invert(1) brightness(1.2) !important;
+  opacity: 0.75;
+}
+
+html.dark a.rounded-full:hover img,
+html.dark a[aria-label]:hover img {
+  opacity: 1;
+}
+
+html.dark a.rounded-full,
+html.dark a[aria-label] {
+  background-color: rgba(255,255,255,0.06) !important;
+  border-color: rgba(255,255,255,0.10) !important;
+}
+
+html.dark a.rounded-full:hover,
+html.dark a[aria-label]:hover {
+  background-color: rgba(255,255,255,0.12) !important;
+  border-color: rgba(255,255,255,0.20) !important;
+}
+
+/* ============================================================
+   WISHLIST PAGE — dark mode
+   Add this to the bottom of your darkmode.css
+   ============================================================ */
+
+/* ── Page background ── */
+html.dark .wishlist-page {
+  background: #0a0a0f !important;
+}
+
+/* ── Header ── */
+html.dark .wl-title {
+  color: #f9fafb !important;
+}
+html.dark .wl-count-badge {
+  background: #f9fafb !important;
+  color: #111827  !important;
+}
+html.dark .wl-subtitle {
+  color: #6b7280 !important;
+}
+html.dark .wl-total {
+  color: #f9fafb !important;
+}
+
+/* ── Toolbar ── */
+html.dark .wl-sort-pill {
+  background:    #1a1a2e !important;
+  color:         #9ca3af !important;
+  border-color:  #2d2d44 !important;
+}
+html.dark .wl-sort-pill:hover {
+  border-color: #6b7280 !important;
+  color:        #f9fafb !important;
+}
+html.dark .wl-sort-pill.active {
+  background:   #f9fafb !important;
+  color:        #111827 !important;
+  border-color: #f9fafb !important;
+}
+html.dark .wl-clear-btn {
+  color: #4b5563 !important;
+}
+html.dark .wl-clear-btn:hover {
+  color: #f87171 !important;
+}
+
+/* ── Card ── */
+html.dark .wl-card {
+  background:   #111827 !important;
+  border-color: #1f2937 !important;
+}
+html.dark .wl-card:hover {
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5) !important;
+}
+
+/* Card image area */
+html.dark .wl-card-img {
+  background: #1a1a2e !important;
+}
+
+/* Remove (×) button */
+html.dark .wl-remove {
+  background:   rgba(17,24,39,0.92) !important;
+  border-color: #374151              !important;
+  color:        #9ca3af              !important;
+}
+html.dark .wl-remove:hover {
+  background:   #f9fafb !important;
+  color:        #111827 !important;
+  border-color: #f9fafb !important;
+}
+
+/* Discount tag */
+html.dark .wl-discount-tag {
+  background: #f9fafb !important;
+  color:      #111827 !important;
+}
+
+/* Card body text */
+html.dark .wl-card-category {
+  color: #4b5563 !important;
+}
+html.dark .wl-card-name {
+  color: #f9fafb !important;
+}
+html.dark .wl-card-price {
+  color: #f9fafb !important;
+}
+html.dark .wl-card-rating {
+  color: #6b7280 !important;
+}
+html.dark .wl-card-rating svg {
+  color: #fbbf24 !important;
+}
+
+/* Add to Cart button */
+html.dark .wl-btn-cart {
+  background: #f9fafb !important;
+  color:      #111827 !important;
+}
+html.dark .wl-btn-cart:hover:not(:disabled) {
+  background: #e5e7eb !important;
+}
+html.dark .wl-btn-cart--added {
+  background: #065f46 !important;
+  color:      #d1fae5 !important;
+}
+
+/* View (eye) button */
+html.dark .wl-btn-view {
+  border-color: #374151 !important;
+  color:        #6b7280 !important;
+}
+html.dark .wl-btn-view:hover {
+  border-color:     #f9fafb !important;
+  color:            #f9fafb !important;
+  background-color: #1f2937 !important;
+}
+
+/* ── Bottom bar ── */
+html.dark .wl-bottom-bar {
+  background:   #111827 !important;
+  border-color: #1f2937 !important;
+}
+html.dark .wl-bottom-label {
+  color: #4b5563 !important;
+}
+html.dark .wl-bottom-amount {
+  color: #f9fafb !important;
+}
+
+/* ── Primary button (Browse / Add All) ── */
+html.dark .wl-btn-primary {
+  background: #f9fafb !important;
+  color:      #111827 !important;
+}
+html.dark .wl-btn-primary:hover {
+  background: #e5e7eb !important;
+}
+
+/* ── Empty state ── */
+html.dark .wl-empty {
+  background:   #111827 !important;
+  border-color: #1f2937 !important;
+}
+html.dark .wl-empty-icon {
+  background: #1f2937 !important;
+  color:      #374151  !important;
+}
+html.dark .wl-empty-title {
+  color: #f9fafb !important;
+}
+html.dark .wl-empty-sub {
+  color: #6b7280 !important;
+}
+
+html.dark .wl-clear-btn {
+  color: #6b7280 !important;  /* slightly brighter than before */
+}
+html.dark .wl-clear-btn:hover {
+  color: #f87171 !important;
+}
+
+html.dark .wl-sort-pill {
+  border-color: #374151 !important;  /* was #2d2d44, now more visible */
+}
