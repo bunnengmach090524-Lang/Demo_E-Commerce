@@ -5,11 +5,18 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ecommerce – Shop the Latest Essentials</title>
+    <script>
+      const saved = localStorage.getItem('theme')
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+      if (saved === 'dark' || (!saved && prefersDark)) {
+        document.documentElement.classList.add('dark')
+      }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet" />
   </head>
-  <body>
+  <body style="transition: background-color 0.3s ease, color 0.3s ease;">
     <div id="app"></div>
     <script type="module" src="/src/main.js"></script>
   </body>
